@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>Bootstrap</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<script src="js/jquery-1.11.3.js"></script>	
+	<script>
+
+		$(document).on("click","#enviar",function(){
+			var nome = $("#nome").val();		
+			var tel = $("#tel").val();
+			var email = $("#email").val();
+			var idade = $("#idade").val();
+
+			localStorage.setItem("nome",nome);
+			localStorage.setItem("tel",tel);
+			localStorage.setItem("email",email);
+			localStorage.setItem("idade",idade);
+		});
+
+		$(window).load(function(){	
+			$(".recebe").append(localStorage.getItem("nome")+" "
+			+localStorage.getItem("tel")+" "
+			+localStorage.getItem("email")+" "
+			+localStorage.getItem("idade")+" ");
+		});
+
+	</script>
+</head>
+<body>
+	<div class="container-fluid">
+		<form>
+			<div class="row">
+				<div class="col-xs-6 sm-4">
+					<label>Nome: <input type="text" id="nome" /> </label>
+				</div>
+				<div class="col-xs-6 sm-4">
+					<label>Telefone: <input type="text" id="tel" /> </label>
+				</div>		
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 sm-4">
+					<label>	Email: <input type="email" id="email" /> </label>
+				</div>
+				<div class="col-xs-6 sm-4">
+					<label>	Idade: <input type="date" id="idade" /> </label>
+				</div>		
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 sm-4" style="padding:10px;">
+					<button class="btn btn-primary btn-block" id="enviar">Enviar</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="recebe"></h1>
+					<h2 class="recebe"></h2>
+					<h3 class="recebe"></h3>
+					<h4 class="recebe"></h4>
+					<h5 class="recebe"></h5>
+				</div>
+			</div>
+			
+		</form>
+
+	</div>				
+</body>
+</html>
